@@ -6,8 +6,9 @@ This example shows how JTA transaction is working, you can see different behavio
 
 This API shows basic setup for JTA transaction
 
+```
 $ curl -d '{"item":"apple", "quantity": 100}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/order/transactions
-
+```
 
 To rollback the transaction, the database transction is rolled back also JMS message won't deliver to the listener
 
