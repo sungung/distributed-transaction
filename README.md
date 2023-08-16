@@ -11,12 +11,14 @@ $ curl -d '{"item":"apple", "quantity": 100}' -H "Content-Type: application/json
 ```
 
 To rollback the transaction, the database transction is rolled back also JMS message won't deliver to the listener
-
+```
 $ curl -d '{"item":"apple", "quantity": 100}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/order/transactions/rollback
-
+```
 
 JTA will commit transaction even though listener throws an exception but it will resend failed message based on broker settings.
-
+```
 $ curl -d '{"item":"apple", "quantity": 100}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/order/transactions/consumer/exception
-
+```
+```
 <max-delivery-attempts>2</max-delivery-attempts>
+```
