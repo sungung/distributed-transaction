@@ -1078,3 +1078,12 @@ org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid content was found
 2023-08-16 02:57:01,747 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
 2023-08-16 02:57:26,825 INFO  [io.hawt.web.auth.LoginServlet] Logging in user: artemis
 2023-08-16 02:58:24,139 WARN  [org.apache.activemq.artemis.core.server] AMQ222149: Sending message Reference[945]:RELIABLE:CoreMessage[messageID=945,durable=true,userID=c08f3dfa-3be0-11ee-a91d-0a002700000b,priority=4, timestamp=Wed Aug 16 02:58:18 UTC 2023,expiration=0, durable=true, address=simple.fail,size=349,properties=TypedProperties[__AMQ_CID=90db2d53-3be0-11ee-a91d-0a002700000b, _AMQ_ROUTING_TYPE=1]]@820923132 to Dead Letter Address DLA from simple.fail
+2023-08-16 03:27:57,929 INFO  [io.hawt.web.auth.SessionExpiryFilter] Expiring session due to inactivity
+2023-08-16 03:31:06,305 WARN  [org.apache.activemq.artemis.core.server] AMQ222061: Client connection failed, clearing up resources for session 6b112fd8-3be2-11ee-a91d-0a002700000b
+2023-08-16 03:31:06,306 WARN  [org.apache.activemq.artemis.core.server] AMQ222107: Cleared up resources for session 6b112fd8-3be2-11ee-a91d-0a002700000b
+2023-08-16 03:31:06,307 WARN  [org.apache.activemq.artemis.core.server] AMQ222061: Client connection failed, clearing up resources for session 54ec5cc7-3be5-11ee-a91d-0a002700000b
+2023-08-16 03:31:06,308 WARN  [org.apache.activemq.artemis.core.server] AMQ222107: Cleared up resources for session 54ec5cc7-3be5-11ee-a91d-0a002700000b
+2023-08-16 03:31:06,310 WARN  [org.apache.activemq.artemis.core.server] AMQ222061: Client connection failed, clearing up resources for session 7113bb1e-3be2-11ee-a91d-0a002700000b
+2023-08-16 03:31:06,310 WARN  [org.apache.activemq.artemis.core.server] AMQ222107: Cleared up resources for session 7113bb1e-3be2-11ee-a91d-0a002700000b
+2023-08-16 03:31:06,311 WARN  [org.apache.activemq.artemis.core.server] AMQ222061: Client connection failed, clearing up resources for session 7115b6ef-3be2-11ee-a91d-0a002700000b
+2023-08-16 03:31:06,312 WARN  [org.apache.activemq.artemis.core.server] AMQ222107: Cleared up resources for session 7115b6ef-3be2-11ee-a91d-0a002700000b
