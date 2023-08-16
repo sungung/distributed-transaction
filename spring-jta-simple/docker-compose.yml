@@ -1,0 +1,19 @@
+services:
+  jms-broker:
+    image: apache/activemq-artemis:latest
+    ports:
+      - 127.0.0.1:8161:8161
+      - 127.0.0.1:61616:61616
+    volumes:
+      - ./broker:/var/lib/artemis-instance
+    environment:
+      ARTEMIS_USER: artemis
+      ARTEMIS_PASSWORD: artemis
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M

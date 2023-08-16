@@ -1087,3 +1087,9 @@ org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid content was found
 2023-08-16 03:31:06,310 WARN  [org.apache.activemq.artemis.core.server] AMQ222107: Cleared up resources for session 7113bb1e-3be2-11ee-a91d-0a002700000b
 2023-08-16 03:31:06,311 WARN  [org.apache.activemq.artemis.core.server] AMQ222061: Client connection failed, clearing up resources for session 7115b6ef-3be2-11ee-a91d-0a002700000b
 2023-08-16 03:31:06,312 WARN  [org.apache.activemq.artemis.core.server] AMQ222107: Cleared up resources for session 7115b6ef-3be2-11ee-a91d-0a002700000b
+2023-08-16 04:41:33,925 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2023-08-16 04:41:33,962 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2023-08-16 04:41:34,521 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2023-08-16 04:41:34,783 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2023-08-16 04:41:35,120 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2023-08-16 04:41:35,136 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.30.0 [7c95a8d8-3be0-11ee-829b-0242ac170002] stopped, uptime 1 hour 45 minutes
