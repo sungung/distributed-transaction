@@ -1,5 +1,7 @@
 package com.sandpit.spring.jta.simple.service;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import com.sandpit.spring.jta.simple.entity.OrderItem;
 import com.sandpit.spring.jta.simple.repository.OrderItemRepository;
 import com.sandpit.spring.jta.simple.repository.StockItemRepository;
 
+import jakarta.jms.Session;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -32,7 +35,7 @@ public class OrderService {
 	
 	public OrderService(JmsTemplate jmsTemplate) {
 		super();
-		jmsTemplate.setSessionTransacted(true);
+		jmsTemplate.setSessionAcknowledgeMode(Session.CLIENT_ACKNOWLEDGE);
 		this.jmsTemplate = jmsTemplate;
 	}
 
@@ -52,7 +55,7 @@ public class OrderService {
 			orderDto = OrderDto.builder().item(order.getItem()).quantity(order.getQuantity()).build();
 			jmsTemplate.convertAndSend(Q_ORDER_SIMPLE_SUCCESS, orderDto);
 		}		
-	}	
+	}			
 	
 	@Transactional
 	public void rollback(OrderDto orderDto) {
@@ -70,7 +73,7 @@ public class OrderService {
 	}
 	
 	@Transactional
-	public void consumerError(OrderDto orderDto) {
+	public void consumerError(OrderDto orderDto) throws IOException {
 		OrderItem order = new OrderItem();
 		order.setItem(orderDto.getItem());
 		order.setQuantity(orderDto.getQuantity());
@@ -81,15 +84,11 @@ public class OrderService {
 			orderDto = OrderDto.builder().item(order.getItem()).quantity(order.getQuantity()).hasFault(false).build();
 			log.info("Producing healthy message.");
 			jmsTemplate.convertAndSend(Q_ORDER_SIMPLE_FAIL, orderDto);
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			orderDto = OrderDto.builder().item(order.getItem()).quantity(order.getQuantity()).hasFault(true).build();
 			log.info("Producing faulty message.");
-			jmsTemplate.convertAndSend(Q_ORDER_SIMPLE_FAIL, orderDto);			
+			jmsTemplate.convertAndSend(Q_ORDER_SIMPLE_FAIL, orderDto);
+			log.info("hit enter to produce messages");
+			System.in.read();
 		}		
 	}	
 

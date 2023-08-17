@@ -1,5 +1,7 @@
 package com.sandpit.spring.jta.simple.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +32,7 @@ public class Webservice {
 	}
 	
 	@PostMapping("/order/transactions/consumer/exception")
-	public ResponseEntity<Long> consumerException(@RequestBody OrderDto order) {
+	public ResponseEntity<Long> consumerException(@RequestBody OrderDto order) throws IOException {
 		orderService.consumerError(order);		
 		return ResponseEntity.ok(orderService.getOrderCount());
 	}

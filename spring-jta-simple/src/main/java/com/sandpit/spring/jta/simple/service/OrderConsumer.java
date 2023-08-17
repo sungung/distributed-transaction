@@ -3,6 +3,7 @@ package com.sandpit.spring.jta.simple.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sandpit.spring.jta.simple.dto.OrderDto;
 
@@ -20,6 +21,7 @@ public class OrderConsumer {
 		log.info("Received >>> Success");
 	}
 	
+	@Transactional
 	@JmsListener(destination = OrderService.Q_ORDER_SIMPLE_FAIL)
 	public void receiveOrderAndFail(OrderDto message)  {
 		log.info("Received >>> {}",  message.toString());

@@ -11,6 +11,9 @@ import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.jta.JtaTransactionManager;
+import org.springframework.util.ErrorHandler;
+
+import com.sandpit.spring.jta.simple.service.JmsErrorHandler;
 
 import jakarta.jms.ConnectionFactory;
 import jakarta.jms.Session;
@@ -30,7 +33,6 @@ public class JmsConfiguration {
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
 		configurer.configure(factory, connectionFactory);
 		factory.setTransactionManager(transactionManager);
-		factory.setSessionTransacted(true);
 		return factory;
 	}
 
